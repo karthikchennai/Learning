@@ -10,4 +10,7 @@
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="com.livetocode.hibernate.demo.entity.Student"/>
 <fullyQualifiedTypeName name="org.hibernate.Session"/>
+<fullyQualifiedTypeName name="javax.swing.JSpinner.DateEditor"/>
+<fullyQualifiedTypeName name="com.livetocode.hibernate.demo.entity.DateUtil"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
 </qualifiedTypeNameHistroy>

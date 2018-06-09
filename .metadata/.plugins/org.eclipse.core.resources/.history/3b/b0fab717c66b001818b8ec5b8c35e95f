@@ -1,0 +1,5 @@
+package com.livetocode.hibernate.demo.entity;
+
+public class DateUtil {
+
+}

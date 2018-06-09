@@ -1,5 +1,7 @@
 package com.livetocode.hibernate.demo.entity;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -26,16 +28,39 @@ public class Student {
 	@Column 
 	private String email;
 	
+	@Column(name = "date_of_birth")
+	private Date dateOfBirth;
+	
+	public Date getDateOfBirth() {
+		return dateOfBirth;
+	}
+
+	public void setDateOfBirth(Date dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
+	}
+
+	public Student(int id, String firstName, String lastName, String email, Date dateOfBirth) {
+		super();
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.dateOfBirth = dateOfBirth;
+	}
+
 	public Student() {
 		
 	}
 
-	public Student( String firstName, String lastName, String email) {
+	
+
+	public Student(String firstName, String lastName, String email, Date dateOfBirth) {
 		super();
-		
+	
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
+		this.dateOfBirth = dateOfBirth;
 	}
 
 	public int getId() {
@@ -72,7 +97,8 @@ public class Student {
 
 	@Override
 	public String toString() {
-		return "Student [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + "]";
+		return "Student [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
+				+ ", dateOfBirth=" +DateUtil.formatDate(dateOfBirth) + "]";
 	}
 	
 }
