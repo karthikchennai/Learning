@@ -1,0 +1,57 @@
+package com.livetocode.hibernate.demo.entity;
+
+import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+public class QueryStudentDemo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		// create session factory
+		SessionFactory factory = new Configuration().configure().addAnnotatedClass(Student.class).buildSessionFactory();
+
+		// create session
+		Session session = factory.getCurrentSession();
+		try {
+			System.out.println("Query the student object");
+		
+			session.beginTransaction();
+			
+			List<Student> stdList =session.createQuery("from Student").list();
+			
+			displayMethod(stdList);
+			
+			stdList =session.createQuery("from Student s where s.lastName='MS'").list();
+			
+			displayMethod(stdList);
+			
+			stdList =session.createQuery("from Student s where s.lastName='MS'").list();
+			
+			displayMethod(stdList);
+			
+			stdList =session.createQuery("from Student s where s.lastName='Thanikachalam' OR s.firstName='Sunny'").list();
+			
+			displayMethod(stdList);
+			
+			stdList =session.createQuery("from Student s where s.email Like 'Thanikachalam' OR s.firstName='Sunny'").list();
+			
+			displayMethod(stdList);
+			
+			session.getTransaction().commit();
+
+		} finally {
+			factory.close();
+		}
+	}
+
+	private static void displayMethod(List<Student> stdList) {
+		for (Student s : stdList) {
+			System.out.println(s);
+		}
+	}
+
+}

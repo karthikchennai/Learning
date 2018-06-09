@@ -1,0 +1,5 @@
+package com.livetocode.hibernate.demo;
+
+public class Student {
+
+}
